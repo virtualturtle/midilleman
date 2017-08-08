@@ -7,8 +7,7 @@ ___  ___ _      _  _  _  _
 | |\/| || | / _` || || || | / _ \| '_ ` _ \  / _` || '_ \ 
 | |  | || || (_| || || || ||  __/| | | | | || (_| || | | |
 \_|  |_/|_| \__,_||_||_||_| \___||_| |_| |_| \__,_||_| |_|
-</pre>                                                          
-
+                                                        
 ## Resources/References
 
 ### Midi to blender:
@@ -153,3 +152,4 @@ https://docs.python.org/2/library/csv.html
 Top of file: @ tick (time to trigger), channel (channel to look in), note (note in that channel to hit
 Ex.: 32, 0, 36
 
+</pre>
