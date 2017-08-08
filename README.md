@@ -1,5 +1,5 @@
-# midilleman
-converting MIDI to blender NLA for music-generated animation
+# Midilleman
+Converting MIDI to blender NLA for music-generated animation
 <pre>
 ___  ___ _      _  _  _  _                                
 |  \/  |(_)    | |(_)| || |                               
@@ -9,7 +9,7 @@ ___  ___ _      _  _  _  _
 \_|  |_/|_| \__,_||_||_||_| \___||_| |_| |_| \__,_||_| |_|
 </pre>                                                          
 
-Resources/References
+## Resources/References
 
 Midi to blender:
 https://github.com/stephanpieterse/pyblend-animidi
