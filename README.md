@@ -11,7 +11,7 @@ ___  ___ _      _  _  _  _
 
 ## Resources/References
 
-Midi to blender:
+### Midi to blender:
 https://github.com/stephanpieterse/pyblend-animidi
 https://www.fourmilab.ch/webtools/midicsv/
 http://blendit.xaa.pl/index.php?p=middrv&l=eng
