@@ -133,6 +133,11 @@ Move to same frame in blender bpy.context.scene.frame_set(whatever that number i
 
 Repeat until last Midi frame has been completed
 
+CLEANUP:
+
+If we want NLA animations to interpolate, we need to bake them to frames (NLA: Bake Action)
+Here comes the cleanup part:
+run through all animations that interpolate, and delete the keyframes on the frame before each action. For example if an animation plays from frame 6 to 10 and another plays from 12 to 14, delete keyframes 5 and 11.
 
 Rendering:
 
