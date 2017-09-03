@@ -77,28 +77,9 @@ Resting is applied after the initial application of animations to avoid overlap.
 	Bake all notes to actions, use progress bar at the top for added debug
 
 ### Refresh:
-	Delete all actions and rebake OR scan midis for differences and apply differences.
+	Delete all actions and rebake
 ------------------------------------------------------
-## Pipe Dream Notes:
 
-Bass1 		F	29
-Bass2 		G	31
-Bass3 		Bb	34
-Bass4 		C	36
-Bass5 		Fb	40
-Bass6 		F	41
-Bass7		G	43
-Bass8 		Bb	46
-Bass9 		C	48
-Bass10 	D	50
-Bass11 	Fb	52
-Bass12 	G	55
-
-Treble1	D	62
-Treble2	Bb	58
-Treble3	A	57
-Treble4	G	55
-------------------------------------------------------
 ## Workflow:
 ### Setup
 
