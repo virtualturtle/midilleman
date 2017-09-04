@@ -84,6 +84,8 @@ Resting is applied after the initial application of animations to avoid overlap.
 ### Setup
 
 Select midi files
+If first note is not at tick 0, subtract that number from all ticks.
+Do tick to frame conversion and round to the nearest whole #
 Parse midi files to allow selection of channels and notes (record which channel #s are active and what note #s are active)
 Convert Active Numbers to Letter Notes, 36 = C
 Select channels, notes.
