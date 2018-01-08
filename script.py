@@ -12,37 +12,28 @@ animlength = 69
 lastframe = (int(animlength) * -1 - 1)
 bpy.data.objects[object].select = True
 
+
 def keyframe(row):
-    
-    global object
     global frame
     global lastframe
     print(lastframe)
     print(frame)
     print(animlength)
     if lastframe > (frame - animlength):
-        
+
         print("Note Overlap by " + str((frame - lastframe) * 1 ) + " frames. Duplicating.")
         bpy.ops.object.duplicate()
-        print(object)
-        object = bpy.context.selected_objects
+        print(bpy.context.selected_objects)
         for obj in bpy.context.selected_objects:
             obj.animation_data_clear()
-        bpy.context.area.type = 'VIEW_3D'
-        #bpy.data.objects[object].select = True
-        #bpy.context.scene.objects.active = bpy.data.objects[object]
-        bpy.context.area.type = 'NLA_EDITOR'
+        print("animation cleared.")
         bpy.context.scene.frame_set(int(row[1])/frame_tick)
         bpy.ops.nla.actionclip_add(action=animation)
-        bpy.context.area.type = 'TEXT_EDITOR'
+        print("added animation to dupe.")
     else:
         print("no note overlap, continuing as normal.")
-        #bpy.data.objects[object].select = True
-        #bpy.context.scene.objects.active = bpy.data.objects[object]
-        bpy.context.area.type = 'NLA_EDITOR'
         bpy.context.scene.frame_set(int(row[1])/frame_tick)
         bpy.ops.nla.actionclip_add(action=animation)
-        bpy.context.area.type = 'TEXT_EDITOR'
 
 
 def main():
@@ -53,7 +44,6 @@ def main():
         read = csv.reader(ifile, delimiter = ',', quotechar = "'")
         print("opened file.")
         for row in read :
-            #print("reading line.")
             if row[0] == "4" and row[2] == " Note_on_c" and row[4] == note and row[1] != 0:
                 print("conditions met.")
                 frame = (int(row[1]) / frame_tick)
@@ -62,9 +52,10 @@ def main():
                 lastframe = (int(row[1]) / frame_tick)
                 continue
             else:
-                #print("nope.")
                 continue
 			
 		
 if __name__ == "__main__":
+    bpy.context.area.type = 'NLA_EDITOR'
     main()
+    bpy.context.area.type = 'TEXT_EDITOR'
