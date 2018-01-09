@@ -3,8 +3,8 @@ import csv
 
 frame_tick = 7.5729
 delay = 30
-object = 'Bass 3'
-animation = 'Bass3'
+object = 'Cube'
+animation = 'CubeAction'
 channel = 4
 note = " 60"
 frame = 0
@@ -12,7 +12,30 @@ animlength = 69
 lastframe = (int(animlength) * -1 - 1)
 bpy.data.objects[object].select = True
 
-
+def dupe(row):
+    #bpy.ops.anim.channels_select_all_toggle()
+    print("Note Overlap by " + str((frame - lastframe) * 1 ) + " frames. Duplicating.")
+    bpy.ops.object.duplicate()
+    print(bpy.context.selected_objects)
+    bpy.context.area.type = 'NLA_EDITOR'
+    for obj in bpy.context.selected_objects:
+        obj.animation_data_clear()
+        bpy.ops.nla.selected_objects_add()
+        obj.animation_data.nla_tracks.new()
+    print("animation cleared.")
+    bpy.ops.nla.tracks_delete()
+    for obj in bpy.context.selected_objects:
+        obj.animation_data.nla_tracks.new()
+    bpy.context.scene.frame_set(int(row[1])/frame_tick)
+    bpy.ops.nla.actionclip_add(action=animation)
+    bpy.ops.anim.channels_select_all_toggle()
+    print("added animation to dupe.")
+        
+def nodupe(row):  
+    print("no note overlap, continuing as normal.")
+    bpy.context.scene.frame_set(int(row[1])/frame_tick)
+    bpy.ops.nla.actionclip_add(action=animation)
+        
 def keyframe(row):
     global frame
     global lastframe
@@ -20,20 +43,9 @@ def keyframe(row):
     print(frame)
     print(animlength)
     if lastframe > (frame - animlength):
-
-        print("Note Overlap by " + str((frame - lastframe) * 1 ) + " frames. Duplicating.")
-        bpy.ops.object.duplicate()
-        print(bpy.context.selected_objects)
-        for obj in bpy.context.selected_objects:
-            obj.animation_data_clear()
-        print("animation cleared.")
-        bpy.context.scene.frame_set(int(row[1])/frame_tick)
-        bpy.ops.nla.actionclip_add(action=animation)
-        print("added animation to dupe.")
+        dupe(row)
     else:
-        print("no note overlap, continuing as normal.")
-        bpy.context.scene.frame_set(int(row[1])/frame_tick)
-        bpy.ops.nla.actionclip_add(action=animation)
+        nodupe(row)
 
 
 def main():
