@@ -7,7 +7,11 @@ ___  ___ _      _  _  _  _
 | |\/| || | / _` || || || | / _ \| '_ ` _ \  / _` || '_ \ 
 | |  | || || (_| || || || ||  __/| | | | | || (_| || | | |
 \_|  |_/|_| \__,_||_||_||_| \___||_| |_| |_| \__,_||_| |_|
-                                                        
+
+Video on how to use it: https://youtu.be/p5Nrnwmsibk
+Video Demonstration:https://youtu.be/Dtil3sURVis
+
+
 ## Resources/References
 
 ### Midi to blender:
